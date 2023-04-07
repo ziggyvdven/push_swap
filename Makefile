@@ -6,7 +6,7 @@
 #    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/06 17:44:23 by zvan-de-         ###   ########.fr        #
+#    Updated: 2023/04/06 20:52:13 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,15 +29,20 @@ RM				= rm -f
 MAKE			= make
 
 # Objects are all .o files
-OBJ_FILES		= $(SRC_FILES:.c=.o)
 OBJS			= $(addprefix $(BINDIR), $(SRCS:.c=.o))
+OBJ_FILES		= $(SRC_FILES:.c=.o)
 
+# Directories
 BINDIR			= bin/
+
+# Includes
+INCS			= -I ./includes/
 
 # library and source files
 LIBFT			= libft/libft.a
-SRCS			= $(addprefix $(SRC_DIR), $(SRC_FILES))
-SRC_FILES		=
+SRCS			= push_swap.c \
+				checks.c \
+				stacks.c \
 
 
 #------------------------------------------------------------------------------#
@@ -50,19 +55,17 @@ $(NAME): $(BINDIR) $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(LIBFT) -o $@ $(OBJS)
 		@echo "$(G)\n -- $(NAME) made 🐙 --$(RT)"
 
-$(BINDIR) :
+$(BINDIR):
 	mkdir $(BINDIR)
 	
-$(BINDIR)%.o: %.c
+$(BINDIR)%.o: $(SRCDIR)%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 	
 $(LIBFT):
 	@$(MAKE) -C libft
 
-	
 clean:
 	@$(RM) $(OBJS)
-	@$(RM) $(BINDIR)client.o
 	@$(RM) -r $(BINDIR)
 	@$(MAKE) -C libft clean
 

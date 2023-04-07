@@ -6,7 +6,7 @@
 #    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/05 18:05:52 by zvan-de-         ###   ########.fr        #
+#    Updated: 2023/04/06 20:03:30 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c\
 ft_atoi.c ft_strdup.c ft_substr.c ft_calloc.c\
 ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c\
 ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c\
-ft_putendl_fd.c ft_putnbr_fd.c ft_split.c\
-ft_lstnew.c ft_lstadd_front.c ft_lstsize.c\
+ft_putendl_fd.c ft_putnbr_fd.c ft_split.c ft_strisdigit.c\
+ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_atol.c\
 ft_lstlast.c ft_lstdelone.c ft_lstadd_back.c\
 ft_lstiter.c ft_lstmap.c ft_lstclear.c ft_putnbr_base.c\
 ft_printf/ft_printf.c\
