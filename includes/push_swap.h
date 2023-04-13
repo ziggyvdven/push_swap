@@ -6,14 +6,14 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/06 21:12:00 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:13:08 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include	"../libft/libft.h"
+# include	"../libft/includes/libft.h"
 # include	<limits.h>
 
 typedef struct s_node	t_node;

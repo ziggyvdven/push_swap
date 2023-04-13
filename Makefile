@@ -6,7 +6,7 @@
 #    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/06 20:52:13 by zvan-de-         ###   ########.fr        #
+#    Updated: 2023/04/13 18:12:08 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,19 +28,25 @@ CFLAGS			= -Wall -Wextra -Werror -g
 RM				= rm -f
 MAKE			= make
 
-# Objects are all .o files
-OBJS			= $(addprefix $(BINDIR), $(SRCS:.c=.o))
-OBJ_FILES		= $(SRC_FILES:.c=.o)
+# Objects 
+OBJS_PATH		= objs/
+OBJS			= $(addprefix $(OBJS_PATH), $(SRCS_FILES:.c=.o))
+
+# Sources
+SRCS_PATH		= srcs/
+SRCS			= $(addprefix $(SRCS_PATH), $(SRCS_FILES))
 
 # Directories
 BINDIR			= bin/
 
 # Includes
-INCS			= -I ./includes/
+INCLUDE_PATH	= includes/
+INCS			= -I $(INCLUDE_PATH)
+HEADER			= $(addprefix $(INCLUDES_PATH), $(HEADER_FILES))
 
 # library and source files
 LIBFT			= libft/libft.a
-SRCS			= push_swap.c \
+SRCS_FILES		= push_swap.c \
 				checks.c \
 				stacks.c \
 
@@ -51,22 +57,21 @@ SRCS			= push_swap.c \
 
 all: $(NAME) 
 
-$(NAME): $(BINDIR) $(OBJS) $(LIBFT)
+$(NAME): $(OBJS_PATH) $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(LIBFT) -o $@ $(OBJS)
 		@echo "$(G)\n -- $(NAME) made 🐙 --$(RT)"
 
-$(BINDIR):
-	mkdir $(BINDIR)
-	
-$(BINDIR)%.o: $(SRCDIR)%.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-	
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADER)
+	$(CC) $(CFLAGS)  -o $@ -c $<
+
+$(OBJS_PATH):
+	mkdir -p $(OBJS_PATH)
+
 $(LIBFT):
 	@$(MAKE) -C libft
 
 clean:
-	@$(RM) $(OBJS)
-	@$(RM) -r $(BINDIR)
+	@rm -rf $(OBJS) $(OBJS_PATH)
 	@$(MAKE) -C libft clean
 
 fclean: clean
