@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:49:14 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/04/19 12:21:33 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:36:48 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	sb(t_stack *stacks)
 	t_node	*ptr;
 	int		tmp;
 
-	ptr = stacks->head_b;
-	if (ptr->next == NULL)
+	if (stacks->head_b == NULL)
 		return ;
+	ptr = stacks->head_b;
 	ptr = ptr->next;
 	tmp = stacks->head_b->n;
 	stacks->head_a->n = ptr->n;
@@ -39,9 +39,9 @@ void	rb(t_stack *stacks)
 	int		tmp;
 	int		last;
 
-	current = stacks->head_b;
-	if (current->next == NULL)
+	if (stacks->head_b == NULL)
 		return ;
+	current = stacks->head_b;
 	last = current->n;
 	while (current->next != NULL)
 	{
@@ -62,9 +62,9 @@ void	rrb(t_stack *stacks)
 	t_node	*current;
 	int		tmp;
 
-	current = stacks->head_b;
-	if (current->next == NULL)
+	if (stacks->head_b == NULL)
 		return ;
+	current = stacks->head_b;
 	tmp = current->n;
 	while (current->next != NULL)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:14:48 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/04/18 15:48:01 by zvandeven        ###   ########.fr       */
+/*   Updated: 2023/04/19 17:37:33 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	sa(t_stack *stacks)
 	t_node	*ptr;
 	int		tmp;
 
-	ptr = stacks->head_a;
-	if (ptr->next == NULL)
+	if (stacks->head_a == NULL)
 		return ;
+	ptr = stacks->head_a;
 	ptr = ptr->next;
 	tmp = stacks->head_a->n;
 	stacks->head_a->n = ptr->n;
@@ -39,9 +39,9 @@ void	ra(t_stack *stacks)
 	int		tmp;
 	int		last;
 
-	current = stacks->head_a;
-	if (current->next == NULL || current == NULL)
+	if (stacks->head_a == NULL)
 		return ;
+	current = stacks->head_a;
 	last = current->n;
 	while (current->next != NULL)
 	{
@@ -62,9 +62,9 @@ void	rra(t_stack *stacks)
 	t_node	*current;
 	int		tmp;
 
-	current = stacks->head_a;
-	if (current->next == NULL)
+	if (stacks->head_a == NULL)
 		return ;
+	current = stacks->head_a;
 	tmp = current->n;
 	while (current->next != NULL)
 	{

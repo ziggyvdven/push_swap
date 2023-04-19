@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:47:38 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/19 17:23:38 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:47:44 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,23 @@ void	ft_clean_error(t_stack *stacks)
 	exit(1);
 }
 
+void	ft_printf_exit(char	*str)
+{
+	ft_printf("%s\n", str);
+	exit(0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack		*stacks;
 
 	(void)argv;
 	if (argc == 1 || argc == 2)
-		exit (0);
+		ft_printf_exit("Not enough arguments");
 	args_valid(argv);
 	stacks = stack_init(argc, argv);
 	if (!(list_valid(stacks->head_a)))
 		ft_clean_error(stacks);
-	pb(stacks);
-	pb(stacks);
-	ra(stacks);
-	sa(stacks);
 	printlist(stacks);
 	ft_free_stacks(stacks);
 	return (0);
