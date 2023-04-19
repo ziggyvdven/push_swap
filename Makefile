@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
+#    By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/13 18:12:08 by zvan-de-         ###   ########.fr        #
+#    Updated: 2023/04/18 15:06:34 by zvandeven        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,9 @@ LIBFT			= libft/libft.a
 SRCS_FILES		= push_swap.c \
 				checks.c \
 				stacks.c \
-
+				operations_a.c \
+				operations_b.c \
+				operations_ab.c\
 
 #------------------------------------------------------------------------------#
 #                                 RULES                                        #
@@ -58,7 +60,7 @@ SRCS_FILES		= push_swap.c \
 all: $(NAME) 
 
 $(NAME): $(OBJS_PATH) $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(LIBFT) -o $@ $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
 		@echo "$(G)\n -- $(NAME) made 🐙 --$(RT)"
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADER)

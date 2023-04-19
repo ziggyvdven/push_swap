@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
+#    By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/13 18:20:16 by zvan-de-         ###   ########.fr        #
+#    Updated: 2023/04/18 14:15:13 by zvandeven        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ utils/ft_putendl_fd.c utils/ft_putnbr_fd.c string/ft_split.c string/ft_strisdigi
 list/ft_lstnew.c list/ft_lstadd_front.c list/ft_lstsize.c \
 list/ft_lstlast.c list/ft_lstdelone.c list/ft_lstadd_back.c utils/ft_atol.c\
 list/ft_lstiter.c list/ft_lstmap.c list/ft_lstclear.c utils/ft_putnbr_base.c\
+utils/ft_swap.c\
 printf/ft_printf.c\
 printf/ft_printf_utils.c\
 printf/ft_putnbr_pf.c\

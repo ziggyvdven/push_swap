@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/13 18:33:05 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:19:41 by zvandeven        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include	<unistd.h>
 # include	<stddef.h>
 # include	<stdarg.h>
+# include	<limits.h>
+# include	<stdint.h>
 
 # define BUFFER_SIZE 100
 
@@ -73,6 +75,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void		ft_putnbr_base(int nbr, char *base);
 int			ft_strisdigit(char *str);
 long int	ft_atol(const char *nptr);
+void		ft_swap(int *a, int *b);
 
 /*PRINTF*********************************/
 int			ft_printf(const char *s, ...);

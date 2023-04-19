@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:42:53 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/13 17:34:10 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:01:06 by zvandeven        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ t_stack	*stack_init(int argc, char **argv)
 		return (NULL);
 	stacks->head_a = lst_new_ps(argv, 1);
 	stacks->tail_a = fill_lst_ps(&stacks->head_a, argv);
+	stacks->head_b = NULL;
+	stacks->tail_b = NULL;
+	stacks->argc = argc;
 	return (stacks);
 }
 
