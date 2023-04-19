@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:42:53 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:01:06 by zvandeven        ###   ########.fr       */
+/*   Updated: 2023/04/19 17:21:49 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,29 @@ t_node	*lst_new_ps(char **argv, int i)
 	a->n = ft_atoi(argv[i]);
 	a->next = NULL;
 	return (a);
+}
+
+void	ft_free_stack(t_node *stack)
+{
+	t_node	*tmp;
+
+	while (stack)
+	{
+		tmp = stack;
+		stack = stack->next;
+		if (tmp)
+			free(tmp);
+	}
+	if (stack)
+		free (stack);
+}
+
+void	ft_free_stacks(t_stack *stacks)
+{
+	if (stacks->head_a)
+		ft_free_stack(stacks->head_a);
+	if (stacks->head_b)
+		ft_free_stack(stacks->head_b);
+	if (stacks)
+		free(stacks);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:47:38 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:34:14 by zvandeven        ###   ########.fr       */
+/*   Updated: 2023/04/19 17:23:38 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,10 @@ void	printlist(t_stack *stacks)
 	ft_printf("\n");
 }
 
-void	free_stack(t_node **stack)
+void	ft_clean_error(t_stack *stacks)
 {
-	t_node	*head;
-	t_node	*tmp;
-
-	head = *stack;
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-	free(stack);
+	ft_free_stacks(stacks);
+	exit(1);
 }
 
 int	main(int argc, char **argv)
@@ -54,19 +45,17 @@ int	main(int argc, char **argv)
 	t_stack		*stacks;
 
 	(void)argv;
-	if (argc == 1)
+	if (argc == 1 || argc == 2)
 		exit (0);
 	args_valid(argv);
 	stacks = stack_init(argc, argv);
-	list_valid(stacks->head_a);
+	if (!(list_valid(stacks->head_a)))
+		ft_clean_error(stacks);
 	pb(stacks);
 	pb(stacks);
 	ra(stacks);
 	sa(stacks);
-	pa(stacks);
-	pa(stacks);
 	printlist(stacks);
-	free(stacks->head_a);
-	free(stacks->head_b);
-	free(stacks);
+	ft_free_stacks(stacks);
+	return (0);
 }

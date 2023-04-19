@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:18:24 by zvandeven        ###   ########.fr       */
+/*   Updated: 2023/04/19 17:21:36 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ typedef struct s_stack
 
 /*CHECKS*********************************/
 void		args_valid(char **argv);
-void		list_valid(t_node *head);
+int			list_valid(t_node *head);
 
 /*STACK**********************************/
 t_stack		*stack_init(int argc, char **argv);
 t_node		*lst_new_ps(char **argv, int i);
 t_node		*fill_lst_ps(t_node **head_a, char **argv);
+void		ft_free_stack(t_node *lst);
+void		ft_free_stacks(t_stack *stacks);
 
 /*operations******************************/
 void		sa(t_stack *stacks);

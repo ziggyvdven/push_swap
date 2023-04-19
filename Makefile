@@ -6,7 +6,7 @@
 #    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/19 12:32:53 by zvan-de-         ###   ########.fr        #
+#    Updated: 2023/04/19 13:09:46 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,15 +60,15 @@ SRCS_FILES		= push_swap.c \
 all: $(NAME) 
 
 $(NAME): $(OBJS_PATH) $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT) -I includes/push_swap.h
 		@echo "$(G)\n -- $(NAME) made 🐙 --$(RT)"
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c 
-	$(CC) $(CFLAGS)  -o $@ -c $< -I $(HEADER)
-
+	$(CC) $(CFLAGS) -o $@ -c $< 
+	
 $(OBJS_PATH):
 	mkdir -p $(OBJS_PATH)
-
+	
 $(LIBFT):
 	@$(MAKE) -C libft
 

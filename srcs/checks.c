@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:49:23 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/18 13:09:21 by zvandeven        ###   ########.fr       */
+/*   Updated: 2023/04/19 17:16:38 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	args_valid(char **argv)
 
 // checks if there are duplicate arguments
 
-void	list_valid(t_node *head)
+int	list_valid(t_node *head)
 {
 	t_node	*ptr;
 
@@ -51,10 +51,11 @@ void	list_valid(t_node *head)
 			if (head->n == ptr->n)
 			{
 				ft_printf("Error\n");
-				exit(1);
+				return (0);
 			}
 		ptr = ptr->next;
 		}
 	head = head->next;
 	}
+	return(1);
 }
