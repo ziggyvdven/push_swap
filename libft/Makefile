@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+         #
+#    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/18 14:15:13 by zvandeven        ###   ########.fr        #
+#    Updated: 2023/04/19 12:23:40 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS			= $(addprefix $(SRCS_PATH), $(SRCS_FILES))
 INCLUDE_PATH	= includes/
 INCS			= -I $(INCLUDE_PATH)
 HEADER			= $(addprefix $(INCLUDES_PATH), $(HEADER_FILES))
+HEADER_FILES	= libft.h
 
 # source files
 SRCS_FILES		= alpha_digit/ft_isalpha.c alpha_digit/ft_isdigit.c alpha_digit/ft_isalnum.c alpha_digit/ft_isascii.c \
@@ -65,13 +66,13 @@ gnl/get_next_line.c gnl/get_next_line_utils.c\
 
 all: $(NAME) 
 
-$(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADER)
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c 
 	@mkdir $(OBJS_PATH) 2> /dev/null || true
 	@mkdir $(OBJS_DIRS) 2> /dev/null || true
-	$(CC) $(FLAGS) -o $@ -c $<
+	$(CC) $(FLAGS) -o $@ -c $< -I $(HEADER)
 
 $(NAME): $(OBJS)
-	@ar rc -v $(NAME) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 	
 clean:

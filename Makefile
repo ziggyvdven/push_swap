@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+         #
+#    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/18 15:06:34 by zvandeven        ###   ########.fr        #
+#    Updated: 2023/04/19 12:32:53 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,8 @@ $(NAME): $(OBJS_PATH) $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
 		@echo "$(G)\n -- $(NAME) made 🐙 --$(RT)"
 
-$(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADER)
-	$(CC) $(CFLAGS)  -o $@ -c $<
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c 
+	$(CC) $(CFLAGS)  -o $@ -c $< -I $(HEADER)
 
 $(OBJS_PATH):
 	mkdir -p $(OBJS_PATH)

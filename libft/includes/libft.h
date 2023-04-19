@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/18 14:19:41 by zvandeven        ###   ########.fr       */
+/*   Updated: 2023/04/19 12:00:47 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,5 @@ int			strchr_gnl(const char *s, int c);
 int			ft_strlcpy_gnl(char *dst, char *src, int dstsize);
 void		*calloc_gnl(size_t nmemb, size_t size);
 char		*ft_free_gnl(char *s);
-
-
 
 #endif
