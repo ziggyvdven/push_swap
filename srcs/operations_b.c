@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:49:14 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/04/19 17:36:48 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:00:11 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	sb(t_stack *stacks)
 	tmp = stacks->head_b->n;
 	stacks->head_a->n = ptr->n;
 	ptr->n = tmp;
+	ft_putendl_fd("sb", 1);
 }
 
 // Shift up all elements of stacks b by 1.
@@ -36,22 +37,24 @@ void	rb(t_stack *stacks)
 {
 	t_node	*next;
 	t_node	*current;
-	int		tmp;
-	int		last;
+	int		last_n;
+	int		last_index;
 
 	if (stacks->head_b == NULL)
 		return ;
 	current = stacks->head_b;
-	last = current->n;
+	last_n = current->n;
+	last_index = current->index;
 	while (current->next != NULL)
 	{
-	next = current->next;
-	tmp = current->n;
-	current->n = next->n;
-	next->n = tmp;
-	current = current->next;
+		next = current->next;
+		ft_swap(&next->n, &current->n);
+		ft_swap(&next->index, &current->index);
+		current = current->next;
 	}
-	current->n = last;
+	current->n = last_n;
+	current->index = last_index;
+	ft_putendl_fd("rb", 1);
 }
 
 // Shift down all elements of stacks b by 1.
@@ -72,6 +75,7 @@ void	rrb(t_stack *stacks)
 		ft_swap(&tmp, &current->n);
 	}
 	stacks->head_b->n = tmp;
+	ft_putendl_fd("rrb", 1);
 }
 
 // Take the first element at the top of b and put it at the top of a.
@@ -88,4 +92,5 @@ void	pa(t_stack *stacks)
 	stacks->head_b->next = stacks->head_a;
 	stacks->head_a = stacks->head_b;
 	stacks->head_b = ptr;
+	ft_putendl_fd("pa", 1);
 }

@@ -6,27 +6,30 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:42:53 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/19 17:21:49 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:16:02 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+// initiates the stacks
+
 t_stack	*stack_init(int argc, char **argv)
 {
 	t_stack	*stacks;
 
-	(void)argc;
 	stacks = (t_stack *)ft_calloc((sizeof(t_stack)), 1);
 	if (!stacks)
 		return (NULL);
-	stacks->head_a = lst_new_ps(argv, 1);
+	stacks->head_a = ft_lstnew(ft_atoi(argv[1]));
 	stacks->tail_a = fill_lst_ps(&stacks->head_a, argv);
 	stacks->head_b = NULL;
 	stacks->tail_b = NULL;
 	stacks->argc = argc;
 	return (stacks);
 }
+
+// fill a stack(list) with the given arguments
 
 t_node	*fill_lst_ps(t_node **head_a, char **argv)
 {
@@ -42,24 +45,14 @@ t_node	*fill_lst_ps(t_node **head_a, char **argv)
 			ptr = ptr->next;
 		while (argv[++i])
 		{
-			ptr->next = lst_new_ps(argv, i);
+			ptr->next = ft_lstnew(ft_atoi(argv[i]));
 			ptr = ptr->next;
 		}	
 	}
 	return (ptr);
 }
 
-t_node	*lst_new_ps(char **argv, int i)
-{
-	t_node	*a;
-
-	a = (t_node *)malloc(sizeof(t_node));
-	if (!a)
-		return (NULL);
-	a->n = ft_atoi(argv[i]);
-	a->next = NULL;
-	return (a);
-}
+// frees one stack
 
 void	ft_free_stack(t_node *stack)
 {
@@ -76,6 +69,8 @@ void	ft_free_stack(t_node *stack)
 		free (stack);
 }
 
+//frees both stacks and frees the struckture
+
 void	ft_free_stacks(t_stack *stacks)
 {
 	if (stacks->head_a)
@@ -85,3 +80,4 @@ void	ft_free_stacks(t_stack *stacks)
 	if (stacks)
 		free(stacks);
 }
+

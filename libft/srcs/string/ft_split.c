@@ -6,12 +6,12 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:15:28 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/04/13 18:00:55 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:32:41 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
-// #include "ft_calloc.c"
+// #include "../includes/push_swap.h"
 
 int	ft_strcount(char const *str, char c)
 {
@@ -68,8 +68,9 @@ char	**ft_makear(char const*s, char **ar, unsigned int count, char c)
 	unsigned int	end;
 
 	start = 0;
-	i = 0;
-	while (i < count)
+	i = 1;
+	ar[0] = "666";
+	while (i <= count)
 	{
 		while (s[start] == c)
 			start++;
@@ -98,7 +99,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = ft_strcount(s, c);
-	ptr = (char **)ft_calloc(sizeof(char *), count + 1);
+	ptr = (char **)ft_calloc(sizeof(char *), count + 2);
 	if (!(ptr))
 		return (NULL);
 	ptr = ft_makear(s, ptr, count, c);

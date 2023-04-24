@@ -6,7 +6,7 @@
 #    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 13:45:36 by zvandeven         #+#    #+#              #
-#    Updated: 2023/04/19 13:09:46 by zvan-de-         ###   ########.fr        #
+#    Updated: 2023/04/24 18:32:31 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ SRCS_FILES		= push_swap.c \
 				operations_a.c \
 				operations_b.c \
 				operations_ab.c\
+				indexing.c\
+				insertionsort.c\
 
 #------------------------------------------------------------------------------#
 #                                 RULES                                        #

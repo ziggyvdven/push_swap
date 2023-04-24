@@ -6,17 +6,17 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:05:49 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/19 12:24:29 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:41:44 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_node *lst, void (*del)(int))
 {
 	if (!lst || !del)
 		return ;
-	(*del)(lst->content);
+	(*del)(lst->n);
 	free(lst);
 	return ;
 }

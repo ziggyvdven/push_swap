@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:14:48 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/04/19 17:37:33 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:00:21 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,20 @@
 void	sa(t_stack *stacks)
 {
 	t_node	*ptr;
-	int		tmp;
+	int		tmp_n;
+	int		tmp_index;
 
 	if (stacks->head_a == NULL)
 		return ;
 	ptr = stacks->head_a;
 	ptr = ptr->next;
-	tmp = stacks->head_a->n;
+	tmp_n = stacks->head_a->n;
+	tmp_index = stacks->head_a->index;
 	stacks->head_a->n = ptr->n;
-	ptr->n = tmp;
+	stacks->head_a->index = ptr->index;
+	ptr->n = tmp_n;
+	ptr->index = tmp_index;
+	ft_putendl_fd("sa", 1);
 }
 
 // Shift up all elements of stacks a by 1.
@@ -36,22 +41,24 @@ void	ra(t_stack *stacks)
 {
 	t_node	*next;
 	t_node	*current;
-	int		tmp;
-	int		last;
+	int		last_n;
+	int		last_index;
 
 	if (stacks->head_a == NULL)
 		return ;
 	current = stacks->head_a;
-	last = current->n;
+	last_n = current->n;
+	last_index = current->index;
 	while (current->next != NULL)
 	{
-	next = current->next;
-	tmp = current->n;
-	current->n = next->n;
-	next->n = tmp;
-	current = current->next;
+		next = current->next;
+		ft_swap(&next->n, &current->n);
+		ft_swap(&next->index, &current->index);
+		current = current->next;
 	}
-	current->n = last;
+	current->n = last_n;
+	current->index = last_index;
+	ft_putendl_fd("ra", 1);
 }
 
 // Shift down all elements of stacks a by 1.
@@ -60,18 +67,23 @@ void	ra(t_stack *stacks)
 void	rra(t_stack *stacks)
 {
 	t_node	*current;
-	int		tmp;
+	int		tmp_n;
+	int		tmp_index;
 
 	if (stacks->head_a == NULL)
 		return ;
 	current = stacks->head_a;
-	tmp = current->n;
+	tmp_n = current->n;
+	tmp_index = current->index;
 	while (current->next != NULL)
 	{
 		current = current->next;
-		ft_swap(&tmp, &current->n);
+		ft_swap(&tmp_n, &current->n);
+		ft_swap(&tmp_index, &current->index);
 	}
-	stacks->head_a->n = tmp;
+	stacks->head_a->n = tmp_n;
+	stacks->head_a->index = tmp_index;
+	ft_putendl_fd("rra", 1);
 }
 
 // Take the first element at the top of a and put it at the top of b.
@@ -88,5 +100,5 @@ void	pb(t_stack *stacks)
 	stacks->head_a->next = stacks->head_b;
 	stacks->head_b = stacks->head_a;
 	stacks->head_a = ptr;
+	ft_putendl_fd("pb", 1);
 }
-

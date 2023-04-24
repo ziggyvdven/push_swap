@@ -6,15 +6,15 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:07:11 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/13 17:59:53 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:43:30 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_node **lst, void (*del)(int))
 {
-	t_list	*temp;
+	t_node	*temp;
 
 	if (!*lst || !lst || !del)
 		return ;

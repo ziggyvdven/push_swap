@@ -6,20 +6,23 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:49:23 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/19 17:43:09 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:45:42 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// checks if there are duplicate arguments
+// checks if the arg is a digit and if it fits in a integer
 
-void	args_valid(char **argv)
+void	args_valid(char **argv, int argc)
 {
 	int				i;
 	long int		a;
 
-	i = 0;
+	if (argc == 2)
+		i = -1;
+	else
+		i = 0;
 	while (argv[++i])
 	{
 		if (ft_strisdigit(argv[i]) == 1)
@@ -59,3 +62,25 @@ int	list_valid(t_node *head)
 	}
 	return (1);
 }
+
+// checks if the list is organised
+
+int	list_organised(t_node *head)
+{
+	t_node	*current;
+	t_node	*next;
+
+	current = head;
+	next = head->next;
+	while (current->next != NULL)
+	{
+		if (current->n > next->n)
+		{
+			return (0);
+		}
+	current = current->next;
+	next = next->next;
+	}
+	return (1);
+}
+

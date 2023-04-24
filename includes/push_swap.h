@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/19 17:21:36 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:40:45 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 
 typedef struct s_node	t_node;
 
-typedef struct s_node
-{
-	int		n;
-	t_node	*next;
-}	t_node;
-
 typedef struct s_stack
 {
 	t_node	*head_a;
@@ -34,17 +28,26 @@ typedef struct s_stack
 }	t_stack;
 
 /*CHECKS*********************************/
-void		args_valid(char **argv);
+void		args_valid(char **argv, int argc);
 int			list_valid(t_node *head);
+int			list_organised(t_node *head);
+
+/*INDEXING*******************************/
+t_node		*index_stack(t_node	*ptr);
+int			*bubble_sort(int arr[], int n);
+int			*lsttoarr(t_node *head, int arr[]);
 
 /*STACK**********************************/
 t_stack		*stack_init(int argc, char **argv);
-t_node		*lst_new_ps(char **argv, int i);
 t_node		*fill_lst_ps(t_node **head_a, char **argv);
 void		ft_free_stack(t_node *lst);
 void		ft_free_stacks(t_stack *stacks);
+void		ft_free_array(char **ar);
 
-/*operations******************************/
+/*SORTING*********************************/
+t_stack		*insertion(t_stack *stacks);
+
+/*OPERATIONS******************************/
 void		sa(t_stack *stacks);
 void		ra(t_stack *stacks);
 void		rra(t_stack *stacks);

@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   insertionsort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 10:49:45 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/21 13:29:42 by zvan-de-         ###   ########.fr       */
+/*   Created: 2023/04/21 16:13:41 by zvan-de-          #+#    #+#             */
+/*   Updated: 2023/04/21 16:51:10 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstadd_back(t_node **lst, t_node *new)
+t_stack	*insertion(t_stack *stacks)
 {
-	t_node	*ptr;
+	int		i;
+	int		n;
 
-	if (!lst)
-		return ;
-	if (lst)
+	n = ft_lstsize(stacks->head_a);
+	i = 1;
+	while (i < n)
 	{
-		if (*lst == NULL)
-			*lst = new;
-		else
+		if (stacks->head_a->index == i)
 		{
-			ptr = *lst;
-			while (ptr->next != NULL)
-			ptr = ptr->next;
-		ptr->next = new;
+			pb(stacks);
+			i++;
 		}
+		else
+			ra(stacks);
 	}
+	while (i > 0)
+	{
+		pa(stacks);
+		i--;
+	}
+	return (stacks);
 }
