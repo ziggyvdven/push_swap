@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/24 18:40:45 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:13:44 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 	t_node	*tail_a;
 	t_node	*head_b;
 	t_node	*tail_b;
+	int		size;
 	int		argc;
 }	t_stack;
 
@@ -46,6 +47,9 @@ void		ft_free_array(char **ar);
 
 /*SORTING*********************************/
 t_stack		*insertion(t_stack *stacks);
+t_stack		*ft_radixsort(t_stack *stacks);
+t_stack		*shortsort(t_stack *stacks);
+t_stack		*sort3(t_stack *stacks);
 
 /*OPERATIONS******************************/
 void		sa(t_stack *stacks);

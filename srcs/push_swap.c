@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:47:38 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/24 19:11:10 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:43:33 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ int	main(int argc, char **argv)
 {
 	t_stack		*stacks;
 
-	(void)argv;
-
 	if (argc == 1)
 		return (0);
 	if (argc == 2)
@@ -88,9 +86,12 @@ int	main(int argc, char **argv)
 	stacks->head_a = index_stack(stacks->head_a);
 	if (list_organised(stacks->head_a))
 		ft_printf_clean_exit("List is organised", stacks, argv);
-	printlist(stacks);
-	stacks = insertion(stacks);
-	printlist(stacks);
+	// printlist(stacks);
+	if (ft_lstsize(stacks->head_a) <= 5)
+		shortsort(stacks);
+	else
+		stacks = ft_radixsort(stacks);
+	// printlist(stacks);
 	ft_free_stacks(stacks);
 	if (argc == 2)
 		ft_free_array(argv);

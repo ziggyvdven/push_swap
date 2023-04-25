@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:42:53 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/24 18:16:02 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/25 12:18:37 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_stack	*stack_init(int argc, char **argv)
 	stacks->tail_a = fill_lst_ps(&stacks->head_a, argv);
 	stacks->head_b = NULL;
 	stacks->tail_b = NULL;
+	stacks->size = ft_lstsize(stacks->head_a);
 	stacks->argc = argc;
 	return (stacks);
 }
