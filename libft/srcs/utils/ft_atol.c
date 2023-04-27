@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 10:03:59 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/04/19 11:51:52 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:37:08 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ long int	ft_atol(const char *nptr)
 	sign = 1;
 	nb = 0;
 	i = 0;
-	if (!nptr)
-		return (0);
+	if (!nptr || (nptr[0] == '-' && (nptr[1] == '\0' || nptr[1] == '-')))
+		return (LLONG_MAX);
 	str = (char *)nptr;
 	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
 		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')

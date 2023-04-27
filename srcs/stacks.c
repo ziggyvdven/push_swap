@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:42:53 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/25 12:18:37 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:46:16 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,3 @@ void	ft_free_stacks(t_stack *stacks)
 	if (stacks)
 		free(stacks);
 }
-

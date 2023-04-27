@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:47:38 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/25 18:43:33 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:44:21 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,15 @@ void	ft_clean_error(t_stack *stacks)
 
 // print and exit
 
-void	ft_printf_clean_exit(char *str, t_stack *stacks, char **argv)
+void	ft_clean_exit(t_stack *stacks, char **argv)
 {
-	ft_printf("%s\n", str);
 	ft_free_stacks(stacks);
 	if (stacks->argc == 2)
 		ft_free_array(argv);
 	exit(0);
 }
+
+// frees the array if argument is passed as a string
 
 void	ft_free_array(char **argv)
 {
@@ -75,7 +76,7 @@ int	main(int argc, char **argv)
 {
 	t_stack		*stacks;
 
-	if (argc == 1)
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
@@ -85,15 +86,11 @@ int	main(int argc, char **argv)
 		ft_clean_error(stacks);
 	stacks->head_a = index_stack(stacks->head_a);
 	if (list_organised(stacks->head_a))
-		ft_printf_clean_exit("List is organised", stacks, argv);
-	// printlist(stacks);
+		ft_clean_exit(stacks, argv);
 	if (ft_lstsize(stacks->head_a) <= 5)
 		shortsort(stacks);
 	else
 		stacks = ft_radixsort(stacks);
-	// printlist(stacks);
-	ft_free_stacks(stacks);
-	if (argc == 2)
-		ft_free_array(argv);
+	ft_clean_exit(stacks, argv);
 	return (0);
 }

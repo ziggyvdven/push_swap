@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:22:22 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/25 18:56:22 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:44:25 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,36 +68,32 @@ t_stack	*sort4(t_stack *stacks)
 	return (stacks);
 }
 
-
 t_stack	*sort5(t_stack *stacks)
 {
-	pb(stacks);
-	pb(stacks);
-	stacks = sort3(stacks);
-	while (stacks->head_b)
+	int		count;
+	t_node	*ptr;
+	int		i;
+
+	i = 1;
+	count = 1;
+	while (ft_lstsize(stacks->head_a) > 3)
 	{
-		stacks->tail_a = ft_lstlast(stacks->head_a);
-		if (ft_lstsize(stacks->head_a) == 4)
-			stacks = sort4(stacks);
-		if (stacks->head_b->index == 1)
-			pa(stacks);
-		else if (stacks->head_b->index == 5
-			|| (stacks->head_b->index == 4 && stacks->head_b->next->index == 5))
+		ptr = stacks->head_a;
+		while (ptr->index != i && count++)
+			ptr = ptr->next;
+		while (stacks->head_a->index != i && ft_lstsize(stacks->head_a) > 3)
 		{
-			pa(stacks);
-			ra(stacks);
-		}
-		else
-		{
-			if (stacks->head_b->index < stacks->head_a->index
-				&& stacks->head_b->index > stacks->tail_a->index)
-				pa(stacks);
+			if (count > 3)
+				rra(stacks);
 			else
 				ra(stacks);
 		}
+		i++;
+		pb(stacks);
 	}
-	while (list_organised(stacks->head_a) == 0)
-		ra(stacks);
+	stacks = sort3(stacks);
+	pa(stacks);
+	pa(stacks);
 	return (stacks);
 }
 
@@ -106,6 +102,11 @@ t_stack	*shortsort(t_stack *stacks)
 	int	size;
 
 	size = ft_lstsize(stacks->head_a);
+	if (size == 2)
+	{
+		if (list_organised(stacks->head_a) == 0)
+			sa(stacks);
+	}
 	if (size == 3)
 		stacks = sort3(stacks);
 	else if (size == 4)

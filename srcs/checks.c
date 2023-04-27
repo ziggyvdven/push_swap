@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:49:23 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/25 18:51:32 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:04:57 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	args_valid(char **argv, int argc)
 	{
 		if (ft_strisdigit(argv[i]) == 1)
 		{
-			ft_printf("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 		a = ft_atol(argv[i]);
 		if (a > INT_MAX || a < INT_MIN)
 		{
-			ft_printf("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 	}
@@ -53,7 +53,7 @@ int	list_valid(t_node *head)
 		{
 			if (head->n == ptr->n)
 			{
-				ft_printf("Error\n");
+				ft_putstr_fd("Error\n", 2);
 				return (0);
 			}
 		ptr = ptr->next;

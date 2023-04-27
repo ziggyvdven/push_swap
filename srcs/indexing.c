@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:22:14 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/21 15:25:23 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:50:12 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_node	*index_stack(t_node	*head)
 	t_node	*ptr;
 	int		*arr;
 	int		i;
+	int		len;
 
 	i = 0;
 	ptr = head;
@@ -27,11 +28,11 @@ t_node	*index_stack(t_node	*head)
 		return (NULL);
 	arr = lsttoarr(head, arr);
 	arr = bubble_sort(arr, ft_lstsize(ptr));
-	ptr = head;
 	while (ptr)
 	{
+		len = ft_lstsize(head);
 		i = 0;
-		while (arr[i])
+		while (len--)
 		{
 			if (arr[i++] == ptr->n)
 				ptr->index = i;

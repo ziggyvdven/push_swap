@@ -10,13 +10,12 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "/Users/zvan-de-/42cursus/push_swap/push_swap",
-			"args": ["2 34 54 56 7"],
+			"args": ["1 2 3 4 5 0"],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "lldb"
-			
 		},
 
 	]
