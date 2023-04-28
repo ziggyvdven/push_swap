@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/21 13:43:14 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/28 16:31:37 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_node
 {
 	int		n;
 	int		index;
+	char	*str;
 	t_node	*next;
 }	t_node;
 

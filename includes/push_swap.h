@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:37:21 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/27 17:46:24 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/04/28 16:32:56 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,10 @@ void		pa(t_stack *stacks);
 void		ss(t_stack *stacks);
 void		rr(t_stack *stacks);
 void		rrr(t_stack *stacks);
+
+/*BONUS**********************************/
+t_node		*get_instructions(t_node *lst);
+t_node		*ft_lstnew_bonus(char *content);
+void		ft_lstadd_back_bonus(t_node **lst, t_node *new);
 
 #endif

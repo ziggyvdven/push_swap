@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 17:47:38 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/04/28 14:50:26 by zvan-de-         ###   ########.fr       */
+/*   Created: 2023/04/28 13:40:32 by zvan-de-          #+#    #+#             */
+/*   Updated: 2023/04/28 16:37:59 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ void	ft_free_array(char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack		*stacks;
+	t_node		*lst;
 
+	lst = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
 	if (argc == 2)
@@ -87,10 +89,7 @@ int	main(int argc, char **argv)
 	stacks->head_a = index_stack(stacks->head_a);
 	if (list_organised(stacks->head_a))
 		ft_clean_exit(stacks, argv);
-	if (ft_lstsize(stacks->head_a) <= 5)
-		shortsort(stacks);
-	else
-		stacks = ft_radixsort(stacks);
+	lst = get_instructions(lst);
 	ft_clean_exit(stacks, argv);
 	return (0);
 }
